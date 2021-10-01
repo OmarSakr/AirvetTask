@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Airvet Task</string>
+    <string name="home">Home</string>
+    <string name="userDetails">User details</string>
+</resources>
