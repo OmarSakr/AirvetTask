@@ -1,7 +1,10 @@
 package com.codevalley.airvettask.models
 
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Name(
-    val first: String,
-    val last: String,
-    val title: String
-)
+    @ColumnInfo(name = "first") val first: String,
+):Parcelable

@@ -29,11 +29,13 @@ class SplashActivity : ParentClass() {
     private fun go() {
         lifecycleScope.launchWhenStarted {
             splashViewModel.mutableStateFlow.collect {
-                val intent = Intent(this@SplashActivity, HomeActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
-                startActivity(intent)
+                if (it == 0) {
+                    val intent = Intent(this@SplashActivity, HomeActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                    startActivity(intent)
+                }
             }
 
         }

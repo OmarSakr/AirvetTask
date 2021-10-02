@@ -1,7 +1,10 @@
 package com.codevalley.airvettask.models
 
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Picture(
-    val large: String,
-    val medium: String,
-    val thumbnail: String
-)
+    @ColumnInfo(name = "large") val large: String,
+) : Parcelable

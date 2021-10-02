@@ -1,8 +1,11 @@
 package com.codevalley.airvettask.models
 
+import android.os.Parcelable
+import androidx.room.ColumnInfo
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Location(
-    val city: String,
-    val country: String,
-    val postcode: Any,
-    val state: String,
-)
+    @ColumnInfo(name = "city") val city: String,
+    @ColumnInfo(name = "country") val country: String,
+) : Parcelable

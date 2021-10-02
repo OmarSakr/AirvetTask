@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import com.codevalley.airvettask.main.activities.home.repository.HomeRepository
 //import com.codevalley.airvettask.main.favourite.repository.FavouriteRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -17,8 +18,8 @@ class AppController : MultiDexApplication() {
     private val applicationScope = CoroutineScope(SupervisorJob())
 
 
-//    private val database by lazy { ArticleRoomDatabase.getDatabase(this,applicationScope) }
-//    val repository by lazy { FavouriteRepository(database.articleDao()) }
+    private val database by lazy { UsersRoomDatabase.getDatabase(this, applicationScope) }
+    val repository by lazy { HomeRepository(database.userDao()) }
 
     override fun onCreate() {
         super.onCreate()

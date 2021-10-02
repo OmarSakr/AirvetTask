@@ -1,5 +1,6 @@
 package com.codevalley.airvettask.main.activities.home.repository
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.codevalley.airvettask.models.Result
@@ -12,10 +13,10 @@ class HomeDataSource : PagingSource<Int, Result>() {
         try {
             val currentLoadingPageKey = params.key ?: 1
             val response = apiService.getUsers("20", currentLoadingPageKey.toString())
+            Log.e("page",currentLoadingPageKey.toString())
             val responseData = mutableListOf<Result>()
             val data = response.body()?.results ?: emptyList()
             responseData.addAll(data)
-
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
 
             return LoadResult.Page(
@@ -24,6 +25,7 @@ class HomeDataSource : PagingSource<Int, Result>() {
                 nextKey = currentLoadingPageKey.plus(1)
             )
         } catch (e: Exception) {
+            Log.e("Exception",e.toString())
             return LoadResult.Error(e)
         }
     }

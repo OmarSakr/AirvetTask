@@ -2,4 +2,11 @@
     <string name="app_name">Airvet Task</string>
     <string name="home">Home</string>
     <string name="userDetails">User details</string>
+    <string name="name">Name:</string>
+    <string name="mobileNumber">Mobile :</string>
+    <string name="userInfo">User info</string>
+    <string name="country">Country:</string>
+    <string name="email">Email:</string>
+    <string name="gender">Gender:</string>
+    <string name="city">City:</string>
 </resources>

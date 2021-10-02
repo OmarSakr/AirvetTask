@@ -1,12 +1,14 @@
 package com.codevalley.airvettask.main.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.codevalley.airvettask.databinding.ItemHomeBinding
+import com.codevalley.airvettask.main.activities.userDetails.view.UserDetailsActivity
 import com.codevalley.airvettask.models.Result
 import com.codevalley.airvettask.utils.ParentClass
 
@@ -26,7 +28,9 @@ class HomeAdapter(var context: Context) :
         holder.binding.tvMobile.text = datum?.phone
         ParentClass.loadImageWithPicasso(datum?.picture?.large, context, holder.binding.ivUserImage)
         holder.itemView.setOnClickListener {
-
+            val intent = Intent(context, UserDetailsActivity::class.java)
+            intent.putExtra("userData", datum)
+            context.startActivity(intent)
         }
     }
 
